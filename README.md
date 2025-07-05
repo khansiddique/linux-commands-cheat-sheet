@@ -58,7 +58,24 @@ The book provides detailed explanations of each command with examples, which I s
 | `chown`   | Changes file ownership. | `chown user:group file.txt` |
 | `chmod`   | Changes file permissions. Changing permission with UGO: U - User (or owner), G - group, O - others. _Three Operations:_ `- Removes a permission, + Adds a permission, = Sets a Permission`. Changing Permission with Decimal Notation: `r-4, w-2, x-1 and 4+2+1=7`   | `chmod 755 file.txt` or  `chmod u-w file.txt` or  `chmod u+x, o+x file.txt` |
 
-**`NOTE:`** _daemon_ -- means a Process that runs in the background.
+- **`NOTE:`** _daemon_ -- means a Process that runs in the background.
+
+### Special Permissions
+
+- The 3 general-purpose permissions, `rwx`, Linux has 3 special permissions that are slightly more complicated.
+- These special permissions are: set user ID (or SUID), set group ID (or SGID), and sticky bit
+- `SUID bit` : Temporarily grant the owner's priviledges or Root user priviledges (to _/etc/shadow_ file) to execute the file by setting the `SUID` bit on the program.
+- `SGID bit` : SGID also grants temporary elevated permissions, but it grants the permissions of the file owner's group, rather than of the file's owner. This means that, with an SGID bit set, someone without execute permission can execute a file if the owner belongs to the group that has permission can execute that file.
+
+
+
+| Command   | Description | Example Usage |
+|-----------|-------------|---------------|
+| `chmod 4644 filename`     | Granting Temporary Root permission with SUID. to set the SUID bit enter a `4` before the regular permission, so a file with a new resulting premission of 644 is representened as 4644 when the SUID bit is set.  | `chmod 4644 /etc/shadow` |
+| ``chmod 2644 filename`` | Granting the Root Users's Group permission SGID. to set the SGID bit enter a `2` before the regular permission, so a file with a new resulting premission of 644 is representened as `2644` when the SUID bit is set.  | `chmod 2644 /etc/shadow` |
+
+**The Outmoded Sticky Bit**
+- - **`NOTE:`** _sticky bit_ -- is a permission bit that you can set on a directory to allow a user to delete or rename files within that directory. However, the _sticky bit_ is a legacy of older unix systems, and modern systems (like Linux) ignore it.
 
 ### Add or Install Software Commands
 
