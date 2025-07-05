@@ -95,6 +95,7 @@ The book provides detailed explanations of each command with examples, which I s
 | `export`                      | Sets environment variables or marks shell variables for export. | `export VAR=value` |
 | `export HISTSIZE`             | Exports the HISTSIZE variable to the environment. | `export HISTSIZE=1000` |
 | `echo $PATH`                  | Displays the current value of the PATH variable. | `echo $PATH` |
+| `PATH=$PATH:someNewDirectory`                  | Adding to the PATH variable. | `PATH=$PATH:/root/newhackingtool` |
 | `someNewVariable="Some value"`| Sets a new shell variable. | `someNewVariable="Some value"` |
 | `echo $someNewVariable`       | Displays the value of `someNewVariable`. | `echo $someNewVariable` |
 | `unset someNewVariable`       | Removes `someNewVariable` from the shell environment. | `unset someNewVariable` |
