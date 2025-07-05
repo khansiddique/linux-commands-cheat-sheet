@@ -230,3 +230,10 @@ The book provides detailed explanations of each command with examples, which I s
 
 ---
 Pull requests are welcome for adding or removing commands, as well as for modifying or correcting errors.
+
+---
+
+### Reference
+
+[Book Cheat-sheet: Linux Basics for Hackers by OccupyTheWeb](https://medium.com/@shanlogauthier/book-cheat-sheet-linux-basics-for-hackers-by-occupytheweb-9f112834740e) 
+
