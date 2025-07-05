@@ -56,7 +56,7 @@ The book provides detailed explanations of each command with examples, which I s
 | `fg`      | Brings a background job to the foreground. | `fg %1` |
 | `at`      | Schedules commands to run at a later time. `at` command is used to setup a _daemon_ -- a background process -- which is useful for scheduling a job to run once at some point in the future | `echo "command" \| at 10:00` |
 | `chown`   | Changes file ownership. | `chown user:group file.txt` |
-| `chmod`   | Changes file permissions. Changing permission with UGO: U - User (or owner), G - group, O - others. Three Operations: `- Removes a permission, + Adds a permission, = Sets a Permission`. Changing Permission with Decimal Notation: `r-4, w-2, x-1 and 4+2+1=7`   | `chmod 755 file.txt` or  `chmod 755 file.txt` or  `chmod 755 file.txt` |
+| `chmod`   | Changes file permissions. Changing permission with UGO: U - User (or owner), G - group, O - others. _Three Operations:_ `- Removes a permission, + Adds a permission, = Sets a Permission`. Changing Permission with Decimal Notation: `r-4, w-2, x-1 and 4+2+1=7`   | `chmod 755 file.txt` or  `chmod u-w file.txt` or  `chmod u+x, o+x file.txt` |
 
 **`NOTE:`** _daemon_ -- means a Process that runs in the background.
 
