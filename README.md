@@ -236,4 +236,5 @@ Pull requests are welcome for adding or removing commands, as well as for modify
 ### Reference
 
 [Book Cheat-sheet: Linux Basics for Hackers by OccupyTheWeb](https://medium.com/@shanlogauthier/book-cheat-sheet-linux-basics-for-hackers-by-occupytheweb-9f112834740e) 
+GitHub: shanickcuello/linux-commands-cheat-sheet
 
