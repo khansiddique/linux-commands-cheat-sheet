@@ -116,20 +116,35 @@ The book provides detailed explanations of each command with examples, which I s
 | `uncompress`    | Decompresses files compressed by the compress program. | `uncompress file.txt.Z` |
 | `dd if=inputfile of=outputfile`    | Creating Bit-by-Bit or Physical Copies of Storage Devices. bs (block size: the number of bytes read / written per block). sector size, most often 4KB (4096 bytes) | `dd if=/dev/sdb of=/root/flashcopy` or `dd if=/dev/media of=/root/flashcopy bs=4096 conv=noerror` |
 
-### Mounting and Unmounting Commands
+### Filesystem and Storage Device Management
 
 | Command    | Description | Example Usage |
 |------------|-------------|---------------|
 | `cd`    | The Device Directory /dev. | `cd /dev` -> `ls -l` |
+| `fdisk`    | To view the partitions on your Linux System. Note: HPFS/NTFS/ExFAT filesystem type. HPFS - High performance File Sysdtem , NTFS - New Technology File System , ExFAT - Extended File Allocation Table.  | `fdisk -l` |
 | `lsblk`    | List Block Devices and Information with `lsblk`. | `lsblk` |
 
 **How Linux Represents Storage Devices:**
 
 ##### Device-Naming System
 
-| Command    | Description | Example Usage |
-|------------|-------------|---------------|
-| `mount`    | Mounts a filesystem. | `mount /dev/sdb1 /mnt` |
+| Device File    | Description | 
+|------------|-------------|
+| `sda`    | First SATA hard drive. | 
+| `sdb`    | Second SATA hard drive. |
+| `sdc`    | Third SATA hard drive. |
+| `sdd`    | Fourth SATA hard drive. |
+
+##### Drive Partitions: Partition-Labeling System
+
+| Command    | Description | 
+|------------|-------------|
+| `sda1`    | The first partition (1) on the first (a) SATA drive. | 
+| `sda2`    | The second partition (2) on the first (a) SATA drive. | 
+| `sda3`    | The third partition (3) on the first (a) SATA drive. | 
+| `sda4`    | The forth partition (4) on the first (a) SATA drive. | 
+
+### Mounting and Unmounting Commands
 
 | Command    | Description | Example Usage |
 |------------|-------------|---------------|
