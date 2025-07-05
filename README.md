@@ -72,7 +72,8 @@ The book provides detailed explanations of each command with examples, which I s
 | Command   | Description | Example Usage |
 |-----------|-------------|---------------|
 | `chmod 4644 filename`     | Granting Temporary Root permission with SUID. to set the SUID bit enter a `4` before the regular permission, so a file with a new resulting premission of 644 is representened as 4644 when the SUID bit is set.  | `chmod 4644 /etc/shadow` |
-| ``chmod 2644 filename`` | Granting the Root Users's Group permission SGID. to set the SGID bit enter a `2` before the regular permission, so a file with a new resulting premission of 644 is representened as `2644` when the SUID bit is set.  | `chmod 2644 /etc/shadow` |
+| `chmod 2644 filename` | Granting the Root Users's Group permission SGID. to set the SGID bit enter a `2` before the regular permission, so a file with a new resulting premission of 644 is representened as `2644` when the SUID bit is set.  | `chmod 2644 /etc/shadow` |
+| `find`     | Special permissions, Privilege Escalation, and the Hacker: E.g. we ask Kali to start looking at the top of the file-system with the `/` syntax. It then looks everywhere below `/` for files that are owned by `root`, specified with user `root`, and that have the SUID permission bit set (-prem -4000)   | `find / -user root -perm -4000` |
 
 **The Outmoded Sticky Bit**
 - - **`NOTE:`** _sticky bit_ -- is a permission bit that you can set on a directory to allow a user to delete or rename files within that directory. However, the _sticky bit_ is a legacy of older unix systems, and modern systems (like Linux) ignore it.
