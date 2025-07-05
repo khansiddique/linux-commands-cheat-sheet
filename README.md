@@ -48,14 +48,17 @@ The book provides detailed explanations of each command with examples, which I s
 | Command   | Description | Example Usage |
 |-----------|-------------|---------------|
 | `ps`      | Displays information about running processes. | `ps` |
-| `ps aux`  | Displays detailed information about all running processes. | `ps aux` |
-| `nice`    | Runs a command with modified scheduling priority. | `nice -n 10 command` |
-| `kill`    | Sends a signal to terminate a process. | `kill 1234` |
+| `ps aux`  | Displays detailed information about all running processes. | `ps aux` or `ps aux \| grep msfconsole`|
+| `top`  | Finding the Greediest Processes with top. | `top`|
+| `nice`    | Runs a command with modified scheduling priority. command:_/bin/slowprocess_ | `nice -n 10 command` or `nice -n -10 /bin/slowprocess` |
+| `kill`    | Sends a signal to terminate a process. SIGHUP: -1, SIGINT: -2, SIGQUIT: -3, SIGTERM: -15, SIGKILL: -9 | `kill 1234` or `kill -1 6996` or `kill -9 6996` |
 | `killall` | Kills processes by name. | `killall firefox` |
 | `fg`      | Brings a background job to the foreground. | `fg %1` |
-| `at`      | Schedules commands to run at a later time. | `echo "command" \| at 10:00` |
+| `at`      | Schedules commands to run at a later time. `at` command is used to setup a _daemon_ -- a background process -- which is useful for scheduling a job to run once at some point in the future | `echo "command" \| at 10:00` |
 | `chown`   | Changes file ownership. | `chown user:group file.txt` |
 | `chmod`   | Changes file permissions. | `chmod 755 file.txt` |
+
+**`NOTE:`** _daemon_ -- means a Process that runs in the background.
 
 ### Add or Install Software Commands
 
