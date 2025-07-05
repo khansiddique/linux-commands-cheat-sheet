@@ -230,8 +230,7 @@ The book provides detailed explanations of each command with examples, which I s
 
 ### Network Sharing
 
-Network Sharing
-Learn about network sharing with rsync, scp, nfs and more.
+- Network Sharing: Learn about network sharing with `rsync, scp, nfs and more`.
 
 | Command          | Description | Example Usage |
 |------------------|-------------|---------------|
@@ -240,24 +239,12 @@ Learn about network sharing with rsync, scp, nfs and more.
 | `scp`         | To copy over a directory from your local host to a remote host. | `$ scp -r mydir username@remotehost.com:/remote/directory` |
 
 
-Some commonly-used rsync options:
+Some commonly-used `rsync` options:
 
-v - verbose output
-r - recursive into directories
-h - human readable output
-z - compressed for easier transfer, great for slow connections
-
-
-
-
-
-
-
-
-
-
-
-
+- v - verbose output
+- r - recursive into directories
+- h - human readable output
+- z - compressed for easier transfer, great for slow connections
 
 | Command          | Description | Example Usage |
 |------------------|-------------|---------------|
