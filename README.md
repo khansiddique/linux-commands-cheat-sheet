@@ -108,8 +108,10 @@ The book provides detailed explanations of each command with examples, which I s
 | `tar -rvf`      | Appends files to an existing archive. | `tar -rvf archive.tar newfile` |
 | `tar -xvf`      | Extracts files from an archive. | `tar -xvf archive.tar` |
 | `tar -xf`       | Extracts files from an archive without verbose output. | `tar -xf archive.tar` |
-| `gzip`          | Compresses files using gzip. | `gzip file.txt` |
-| `bzip2`         | Compresses files using bzip2. | `bzip2 file.txt` |
+| `gzip`          | Compresses files using gzip. | `gzip file.txt`  or `gzip file.*`|
+| `gunzip`          | Decompresses files using gunzip. | `gunzip file.*` |
+| `bzip2`         | Compresses files using bzip2. | `bzip2 file.txt` or `bzip2 file.*` |
+| `bunzip2`         | Decompresses files using bzip2. | `bunzip2 file.*` |
 | `compress`      | Compresses files using the compress program. | `compress file.txt` |
 | `uncompress`    | Decompresses files compressed by the compress program. | `uncompress file.txt.Z` |
 
