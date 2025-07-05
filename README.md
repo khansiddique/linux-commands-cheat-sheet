@@ -233,6 +233,7 @@ The book provides detailed explanations of each command with examples, which I s
 - Network Sharing: Learn about network sharing with `rsync, scp, nfs and more`.
 
 1. File Sharing Overview
+   
 | Command          | Description | Example Usage |
 |------------------|-------------|---------------|
 | `scp`     | To copy a file over from local host to a remote host. | `$ scp myfile.txt username@remotehost.com:/remote/directory` |
@@ -240,6 +241,7 @@ The book provides detailed explanations of each command with examples, which I s
 | `scp`         | To copy over a directory from your local host to a remote host. | `$ scp -r mydir username@remotehost.com:/remote/directory` |
 
 2. rsync
+   
 Some commonly-used `rsync` options:
 
 - v - verbose output
