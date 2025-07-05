@@ -114,6 +114,7 @@ The book provides detailed explanations of each command with examples, which I s
 | `bunzip2`         | Decompresses files using bzip2. | `bunzip2 file.*` |
 | `compress`      | Compresses files using the compress program. | `compress file.txt` |
 | `uncompress`    | Decompresses files compressed by the compress program. | `uncompress file.txt.Z` |
+| `dd if=inputfile of=outputfile`    | Creating Bit-by-Bit or Physical Copies of Storage Devices. bs (block size: the number of bytes read / written per block). sector size, most often 4KB (4096 bytes) | `dd if=/dev/sdb of=/root/flashcopy` or `dd if=/dev/media of=/root/flashcopy bs=4096 conv=noerror` |
 
 ### Mounting and Unmounting Commands
 
