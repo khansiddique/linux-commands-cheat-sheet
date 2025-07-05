@@ -228,6 +228,46 @@ The book provides detailed explanations of each command with examples, which I s
 - 1 indicates that the task will run every Monday (Monday is day 1 of the week in cron).
 - /path/to/command is the path to the command that will be executed.
 
+### Network Sharing
+
+Network Sharing
+Learn about network sharing with rsync, scp, nfs and more.
+
+| Command          | Description | Example Usage |
+|------------------|-------------|---------------|
+| `scp`     | To copy a file over from local host to a remote host. | `$ scp myfile.txt username@remotehost.com:/remote/directory` |
+| `scp`    | To copy a file from a remote host to your local host. | `$ scp username@remotehost.com:/remote/directory/myfile.txt /local/directory` |
+| `scp`         | To copy over a directory from your local host to a remote host. | `$ scp -r mydir username@remotehost.com:/remote/directory` |
+
+
+Some commonly-used rsync options:
+
+v - verbose output
+r - recursive into directories
+h - human readable output
+z - compressed for easier transfer, great for slow connections
+
+
+
+
+
+
+
+
+
+
+
+
+
+| Command          | Description | Example Usage |
+|------------------|-------------|---------------|
+| `rsync`     | Copy/sync files on the same host. | `$ rsync -zvr /my/local/directory/one /my/local/directory/two` |
+| `rsync`    | Copy/sync files to local host from a remote host. | `$ rsync /local/directory username@remotehost.com:/remote/directory` |
+| `rsync`         | Copy/sync files to a remote host from a local host. | `$ rsync username@remotehost.com:/remote/directory /local/directory` |
+
+
+
+
 ---
 Pull requests are welcome for adding or removing commands, as well as for modifying or correcting errors.
 
