@@ -120,9 +120,22 @@ The book provides detailed explanations of each command with examples, which I s
 
 | Command    | Description | Example Usage |
 |------------|-------------|---------------|
+| `cd`    | The Device Directory /dev. | `cd /dev` -> `ls -l` |
+| `lsblk`    | List Block Devices and Information with `lsblk`. | `lsblk` |
+
+**How Linux Represents Storage Devices:**
+
+##### Device-Naming System
+
+| Command    | Description | Example Usage |
+|------------|-------------|---------------|
+| `mount`    | Mounts a filesystem. | `mount /dev/sdb1 /mnt` |
+
+| Command    | Description | Example Usage |
+|------------|-------------|---------------|
 | `mount`    | Mounts a filesystem. | `mount /dev/sdb1 /mnt` |
 | `umount`   | Unmounts a filesystem. | `umount /mnt` |
-| `fsck`     | Checks and repairs a filesystem. | `fsck /dev/sdb1` |
+| `fsck`     | Checks and repairs a filesystem. -p: options to have `fsck` automatically repair any problem with the device. | `fsck` -> `unmount /dev/sdb1` -> `fsck /dev/sdb1` or `fsck -p /dev/sdb1` |
 | `df`       | Reports file system disk space usage. | `df -h` |
 
 ### Service and Database Commands
