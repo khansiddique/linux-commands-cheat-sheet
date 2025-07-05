@@ -232,13 +232,14 @@ The book provides detailed explanations of each command with examples, which I s
 
 - Network Sharing: Learn about network sharing with `rsync, scp, nfs and more`.
 
+1. File Sharing Overview
 | Command          | Description | Example Usage |
 |------------------|-------------|---------------|
 | `scp`     | To copy a file over from local host to a remote host. | `$ scp myfile.txt username@remotehost.com:/remote/directory` |
 | `scp`    | To copy a file from a remote host to your local host. | `$ scp username@remotehost.com:/remote/directory/myfile.txt /local/directory` |
 | `scp`         | To copy over a directory from your local host to a remote host. | `$ scp -r mydir username@remotehost.com:/remote/directory` |
 
-
+2. rsync
 Some commonly-used `rsync` options:
 
 - v - verbose output
@@ -252,7 +253,15 @@ Some commonly-used `rsync` options:
 | `rsync`    | Copy/sync files to local host from a remote host. | `$ rsync /local/directory username@remotehost.com:/remote/directory` |
 | `rsync`         | Copy/sync files to a remote host from a local host. | `$ rsync username@remotehost.com:/remote/directory /local/directory` |
 
+3. Simple HTTP Server
 
+Python has a super useful tool for serving files over HTTP. 
+
+| Command          | Description | Example Usage |
+|------------------|-------------|---------------|
+| `python`     | grab the IP address of the machine you ran this on and then on another machine access it in the browser with: http://IP_ADDRESS:8000. | `$ python -m SimpleHTTPServer` |
+
+4.  
 
 
 ---
