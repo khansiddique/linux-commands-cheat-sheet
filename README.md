@@ -31,6 +31,8 @@ The book provides detailed explanations of each command with examples, which I s
 | `mv`    | Moves or renames files or directories. | `mv oldname.txt newname.txt` |
 | `touch` | Changes file timestamps or creates an empty file. | `touch newfile.txt` |
 
+### The Linux Filesystem 
+
 ![image](https://github.com/khansiddique/linux-commands-cheat-sheet/blob/main/linux-file-system.jpeg.png)
 
 ### Text Manipulation
