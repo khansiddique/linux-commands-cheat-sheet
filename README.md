@@ -247,7 +247,12 @@ The book provides detailed explanations of each command with examples, which I s
 | `scp`         | To copy over a directory from your local host to a remote host. | `$ scp -r mydir username@remotehost.com:/remote/directory` |
 
 2. rsync
-   
+
+- (short for remote synchronization)
+- These small optimizations allow greater file transfer flexibility and makes rsync ideal for directory synchronization remotely and locally, data backups, large data transfers and more.
+- let's say that you were copying over a file and your network got interrupted, therefore your copy stopped midway. Instead of re-copying everything from the beginning, rsync will only copy over the parts that didn't get copied.
+
+  
 Some commonly-used `rsync` options:
 
 - v - verbose output
@@ -269,7 +274,20 @@ Python has a super useful tool for serving files over HTTP.
 |------------------|-------------|---------------|
 | `python`     | grab the IP address of the machine you ran this on and then on another machine access it in the browser with: http://IP_ADDRESS:8000. | `$ python -m SimpleHTTPServer` |
 
-4.  
+4. NFS
+
+- The most standard network file share for Linux is NFS (Network File System), NFS allows a server to share directories and files with one or more clients over the network.
+
+| Command          | Description | Example Usage |
+|------------------|-------------|---------------|
+| `service` &   `mount`   | Setting up NFS client. | `$ sudo service nfsclient start` -> $ sudo mount server:/directory /mount_directory|
+
+
+##### Automounting
+
+- Let's say you use the NFS server quite often and you want to keep it permanently mounted, normally you think you'd edit the _/etc/fstab_ file, but you may not always get a connection to the server and that can cause issues on bootup. - Instead what you want to do is setup **automounting** so that you can connect to the NFS server when you need to.
+- This is done with the **automount** tool or in recent versions of Linux **amd**.
+- When a file is accessed in a specified directory, automount will look up the remote server and automatically mount it.
 
 5. Samba
    
