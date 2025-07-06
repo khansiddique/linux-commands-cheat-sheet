@@ -238,7 +238,7 @@ The book provides detailed explanations of each command with examples, which I s
 
 - Network Sharing: Learn about network sharing with `rsync, scp, nfs and more`.
 
-1. File Sharing Overview
+#### 1. File Sharing Overview
    
 | Command          | Description | Example Usage |
 |------------------|-------------|---------------|
@@ -246,7 +246,7 @@ The book provides detailed explanations of each command with examples, which I s
 | `scp`    | To copy a file from a remote host to your local host. | `$ scp username@remotehost.com:/remote/directory/myfile.txt /local/directory` |
 | `scp`         | To copy over a directory from your local host to a remote host. | `$ scp -r mydir username@remotehost.com:/remote/directory` |
 
-2. rsync
+#### 2. rsync
 
 - (short for remote synchronization)
 - These small optimizations allow greater file transfer flexibility and makes rsync ideal for directory synchronization remotely and locally, data backups, large data transfers and more.
@@ -266,15 +266,15 @@ Some commonly-used `rsync` options:
 | `rsync`    | Copy/sync files to local host from a remote host. | `$ rsync /local/directory username@remotehost.com:/remote/directory` |
 | `rsync`         | Copy/sync files to a remote host from a local host. | `$ rsync username@remotehost.com:/remote/directory /local/directory` |
 
-3. Simple HTTP Server
+#### 3. Simple HTTP Server
 
-Python has a super useful tool for serving files over HTTP. 
+- Python has a super useful tool for serving files over HTTP. 
 
 | Command          | Description | Example Usage |
 |------------------|-------------|---------------|
 | `python`     | grab the IP address of the machine you ran this on and then on another machine access it in the browser with: http://IP_ADDRESS:8000. | `$ python -m SimpleHTTPServer` |
 
-4. NFS
+#### 4. NFS
 
 - The most standard network file share for Linux is NFS (Network File System), NFS allows a server to share directories and files with one or more clients over the network.
 
@@ -289,7 +289,7 @@ Python has a super useful tool for serving files over HTTP.
 - This is done with the **automount** tool or in recent versions of Linux **amd**.
 - When a file is accessed in a specified directory, automount will look up the remote server and automatically mount it.
 
-5. Samba
+#### 5. Samba
    
 - In the early days of computing, it became necessary for _Windows machines to share files with Linux machines_, thus the **Server Message Block (SMB) protocol** was born.
 - SMB was used for _sharing files between Windows operating systems (Mac also has file sharing with SMB)_ and then it was later cleaned up and optimized in the form of the **Common Internet File System (CIFS) protocol**.
@@ -297,7 +297,7 @@ Python has a super useful tool for serving files over HTTP.
 - Samba is what we call the Linux utilities to work with CIFS on Linux. In addition to **file sharing**, you can also _share resources like printers_.
 - The Samba package includes a command line tool called **smbclient** that you can use to access any Windows or Samba server. Once you're connected to the share you can _navigate and transfer files_.
 
-#### Create a network share with Samba
+##### Create a network share with Samba
 
 
 | Command          | Description | Example Usage |
