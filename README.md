@@ -228,6 +228,12 @@ The book provides detailed explanations of each command with examples, which I s
 - 1 indicates that the task will run every Monday (Monday is day 1 of the week in cron).
 - /path/to/command is the path to the command that will be executed.
 
+--- 
+
+# Linux Journey
+
+## Networking Nomad 
+
 ### Network Sharing
 
 - Network Sharing: Learn about network sharing with `rsync, scp, nfs and more`.
@@ -265,6 +271,37 @@ Python has a super useful tool for serving files over HTTP.
 
 4.  
 
+5. Samba
+   
+- In the early days of computing, it became necessary for _Windows machines to share files with Linux machines_, thus the **Server Message Block (SMB) protocol** was born.
+- SMB was used for _sharing files between Windows operating systems (Mac also has file sharing with SMB)_ and then it was later cleaned up and optimized in the form of the **Common Internet File System (CIFS) protocol**.
+
+- Samba is what we call the Linux utilities to work with CIFS on Linux. In addition to **file sharing**, you can also _share resources like printers_.
+- The Samba package includes a command line tool called **smbclient** that you can use to access any Windows or Samba server. Once you're connected to the share you can _navigate and transfer files_.
+
+#### Create a network share with Samba
+
+
+| Command          | Description | Example Usage |
+|------------------|-------------|---------------|
+| `apt update`     | Let's go through the basic steps to create a network share that a Windows machine can access. Maching update | `$ sudo apt update` |
+| `apt install`    | Install Samba | `$ sudo apt install samba` |
+| `vi`    | Setup smb.conf: The configuration file for Samba is found at /etc/samba/smb.conf, this file should tell the system what directories should be shared, their access permissions, and more options. | `$ sudo vi /etc/samba/smb.conf` |
+| `smbpasswd`    | Setup up a password for Samba | `$ sudo smbpasswd -a [username]` |
+| `mkdir`    | Create a shared directory | `$ mkdir /my/directory/to/share` |
+| `service`    | Restart the Samba service | `$ sudo service smbd restart` |
+| `smbclient`    | Accessing a Samba/Windows share via Linux | `$ smbclient //HOST/directory -U user` |
+| `mount`    | Attach a Samba share to your system. Instead of transferring files one by one, you can just mount the network share on your system. | `$ sudo mount -t cifs servername:directory mountpount -o user=username,pass=password` |
+| `network connection+run`    | Accessing a Samba share via Windows. In Windows, just type in the _network connection_ in the run prompt: |  `\\HOST\sharename` |
+
+
+
+
+
+
+
+
+
 
 ---
 Pull requests are welcome for adding or removing commands, as well as for modifying or correcting errors.
@@ -275,4 +312,6 @@ Pull requests are welcome for adding or removing commands, as well as for modify
 
 [Book Cheat-sheet: Linux Basics for Hackers by OccupyTheWeb](https://medium.com/@shanlogauthier/book-cheat-sheet-linux-basics-for-hackers-by-occupytheweb-9f112834740e) 
 GitHub: shanickcuello/linux-commands-cheat-sheet
+[Linux Journey](https://linuxjourney.com/) 
+
 
