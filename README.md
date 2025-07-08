@@ -241,11 +241,16 @@ The book provides detailed explanations of each command with examples, which I s
 | `proxychains nmap`    | if you wanted to use proxychains to scan a site with nmap anonymously, you would enter the following. | `proxychains nmap -sT -Pn \<IP address>` |
 
 - configuration of proxychains is managed by the config file—specifically `/etc/proxychains.conf`.
+
+```
 _kali >leafpad /etc/proxychains.conf_
+```
 
 - Fill in the details in the form or just click search; then add one of the resulting proxies to your `proxychains.conf` file using the following format:
 
+```
   `Type IPaddress Port`
+```
   
 Here’s an example:
 
@@ -276,6 +281,7 @@ _kali >proxychains firefox www.hackers-arise.com_
 - You won’t notice any difference, but your packet is now traveling through several proxies.
 
 **Dynamic Chaining**
+
 With multiple IPs in our proxychain.conf file, we can set up dynamic chaining, 
 which runs our traffic through every proxy on our list and, if one of the 
 proxies is down or not responding, automatically goes to the next proxy in 
@@ -313,7 +319,7 @@ uncomment the random_chain line. We can only use one of these three
 options at a time, so make certain you comment out the other options 
 before using proxychains.
 
-Next, find and uncomment the line with chain_len and then give it a reasonable number. This line determines how many of the IP addresses in your 
+Next, find and uncomment the line with chain_len and then give it a reasonable number. This line determines how many of the IP addresses in your 
 chain will be used in creating your random proxy chain.
 
 ```
@@ -339,7 +345,7 @@ random_chain
 chain_len = 3
 ```
 
-Here, I have uncommented chain_len and given it a value of 3, meaning 
+Here, I have uncommented chain_len and given it a value of `3`, meaning 
 proxychains will now use three proxies from my list in the /etc/proxychains.conf
 file, choosing them randomly and moving onto the next one if a proxy is 
 down. Note that although this method certainly enhances your anonymity, 
