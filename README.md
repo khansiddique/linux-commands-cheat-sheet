@@ -231,6 +231,8 @@ The book provides detailed explanations of each command with examples, which I s
 
 ### Proxy Servers
 
+![image](https://github.com/khansiddique/linux-commands-cheat-sheet/blob/main/proxy-server.png) 
+
 - To make your traffic even harder to trace, you can use more than one proxy, in a strategy known as a **proxy chain**.
 - Kali Linux has an excellent proxying tool called proxychains that you can set up to obscure your traffic.
 
