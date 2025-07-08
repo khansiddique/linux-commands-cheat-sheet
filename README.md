@@ -239,8 +239,133 @@ The book provides detailed explanations of each command with examples, which I s
 |------------------|-------------|---------------|
 | `proxychains`     | The syntax for the proxychains command is straightforward, as shown here. | `proxychains \<the command you want proxied> \<arguments>` |
 | `proxychains nmap`    | if you wanted to use proxychains to scan a site with nmap anonymously, you would enter the following. | `proxychains nmap -sT -Pn \<IP address>` |
-| `rrconf`         | Manages configuration for RunRev scripts. | `rrconf list` |
 
+- configuration of proxychains is managed by the config file—specifically `/etc/proxychains.conf`.
+_kali >leafpad /etc/proxychains.conf_
+
+- Fill in the details in the form or just click search; then add one of the resulting proxies to your `proxychains.conf` file using the following format:
+
+  `Type IPaddress Port`
+  
+Here’s an example:
+
+```
+ [ProxyList]
+# add proxy here...
+socks4 114.134.186.12 22020
+# meanwhile
+# defaults set to "tor"
+# socks4 127.0.0.1 9050
+```
+- Adding More Proxies First, let’s add some more proxies to our list. Go back to http://www.hidemy.name and find some more proxy IP addresses. Then add a few more of these proxies to your proxychains.conf file, like so:
+
+```
+[ProxyList]
+# add proxy here...
+socks4 114.134.186.12 22020
+socks4 188.187.190.59 8888
+socks4 181.113.121.158 335551
+```
+
+Now save this config file and try running the following command: 
+
+```
+_kali >proxychains firefox www.hackers-arise.com_
+```
+
+- You won’t notice any difference, but your packet is now traveling through several proxies.
+
+**Dynamic Chaining**
+With multiple IPs in our proxychain.conf file, we can set up dynamic chaining, 
+which runs our traffic through every proxy on our list and, if one of the 
+proxies is down or not responding, automatically goes to the next proxy in 
+the list without throwing an error. 
+
+Go back into your proxychains configuration file, find the dynamic_chain
+line (line 10), and uncomment it, as shown next. Also make sure you comment out the strict_chain line if it isn’t already.
+
+```
+# dynamic_chain
+#
+# Dynamic – Each connection will be done via chained proxies
+# all proxies chained in the order as they appear in the list
+# at least one proxy must be online to play in chain
+--snip--
+```
+
+This will enable dynamic chaining of our proxies, thus allowing for 
+greater anonymity and trouble-free hacking. Save the config file and feel 
+free to try it out.
+
+
+**Random Chaining**
+
+Our final proxy trick is the random chaining option, where proxychains will 
+randomly choose a set of IP addresses from our list and use them to create 
+our proxy chain. This means that each time we use proxychains, the proxy 
+will look different to the target, making it harder to track our traffic from 
+its source. This option is also considered “dynamic” because if one of the 
+proxies is down, it will skip to the next one.
+
+Go back inside the `/etc/proxychains.conf` file and comment out the lines 
+_dynamic_chain_ and _strict_chain_ by adding a # at the start of each line; then 
+uncomment the random_chain line. We can only use one of these three 
+options at a time, so make certain you comment out the other options 
+before using proxychains.
+
+Next, find and uncomment the line with chain_len and then give it a reasonable number. This line determines how many of the IP addresses in your 
+chain will be used in creating your random proxy chain.
+
+```
+# dynamic_chain
+#
+# Dynamic – Each connection will be done via chained proxies
+# all proxies chained in the order as they appear in the list
+# at least one proxy must be online to play in chain
+#
+# strict_chain
+#
+# Strict - Each connection will be done via chained proxies
+# all proxies chained in the order as they appear in the list
+# all proxies must be online to play in chain
+148 Chapter 13
+# otherwise EINTR is returned to the app
+#
+random_chain
+# Random - Each connection will be done via random proxy
+# (or proxy chain, see chain_len) from the list.
+# this option is good to test your IDS :)
+# Makes sense only if random_chain
+chain_len = 3
+```
+
+Here, I have uncommented chain_len and given it a value of 3, meaning 
+proxychains will now use three proxies from my list in the /etc/proxychains.conf
+file, choosing them randomly and moving onto the next one if a proxy is 
+down. Note that although this method certainly enhances your anonymity, 
+it also increases the latency of your online activities.
+Now that you know how to use proxychains, you can do your hacking 
+with relative anonymity. I say “relative” because there is no surefire way to 
+remain anonymous with the NSA and FSB spying on our online activities—
+but we can make detection much harder with the help of proxychains.
+
+**Security Concerns**
+
+As a last note on proxy security, be sure to choose your proxies wisely: 
+proxychains is only as good as the proxies you use. If you are intent on 
+remaining anonymous, do not use a free proxy, as mentioned earlier. 
+Hackers use paid-for proxies that can be trusted. In fact, the free proxies 
+are likely selling your IP address and browsing history. As Bruce Schneier, 
+the famous cryptographer and security expert, once said, “If something 
+is free, you’re not the customer; you’re the product.” In other words, any 
+free product is likely gathering your data and selling it. Why else would 
+they offer a proxy for free?
+
+Although the IP address of your traffic leaving the proxy will be anonymous, there are other ways for surveillance agencies to identify you. For 
+instance, the owner of the proxy will know your identity and, if pressured 
+enough by espionage or law enforcement agencies with jurisdiction, may 
+offer up your identity to protect their business. It’s important to be aware 
+of the limitations of proxies as a source of anonymity.
 
 --- 
 
