@@ -232,21 +232,16 @@ The book provides detailed explanations of each command with examples, which I s
 ### Proxy Servers
 
 - To make your traffic even harder to trace, you can use more than one proxy, in a strategy known as a **proxy chain**.
-- Kali Linux has an excellent proxying tool called proxychains that you 
-can set up to obscure your traffic. The syntax for the proxychains command 
-is straightforward, as shown here:
-kali >proxychains <the command you want proxied> <arguments>
-The arguments you provide might include an IP address. For example, 
-if you wanted to use proxychains to scan a site with nmap anonymously, you 
-would enter the following:
-kali >proxychains nmap -sT -Pn <IP address>
+- Kali Linux has an excellent proxying tool called proxychains that you can set up to obscure your traffic.
 
 
 | Command          | Description | Example Usage |
 |------------------|-------------|---------------|
-| `crontab -e`     | Edits the user's crontab file to schedule tasks. | `crontab -e` |
-| `update-rc.d`    | Updates the System V init links for service control scripts. | `update-rc.d apache2 defaults` |
+| `proxychains`     | The syntax for the proxychains command is straightforward, as shown here. | `proxychains \<the command you want proxied> \<arguments>` |
+| `proxychains nmap`    | if you wanted to use proxychains to scan a site with nmap anonymously, you would enter the following. | `proxychains nmap -sT -Pn \<IP address>` |
 | `rrconf`         | Manages configuration for RunRev scripts. | `rrconf list` |
+
+
 --- 
 
 # Linux Journey
